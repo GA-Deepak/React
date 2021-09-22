@@ -1,29 +1,29 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    
+  background-image: linear-gradient(to left, rgba(250, 223, 223, 0), rgb(87, 93, 184));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .Calculator {
-    width: 400px;
-    height: 300px;
-    position: relative;
-    margin: 25px;
+  width: 400px;
+  height: 300px;
+  position: relative;
+  margin: 25px;
 }
 .keypad {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 80%;
 }
 .display {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: rgb(141, 141, 207);
-    height: 20%;
-    color: #080e0e;
-    font-size: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  height: 20%;
+  color: #ffffff;
+  font-size: 24px;
 }

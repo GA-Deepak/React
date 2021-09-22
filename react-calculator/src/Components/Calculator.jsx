@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button1 from "./Button";
 import "./Calculator.css";
-// import Display from './Display';
-// import Keypad from './Keypad';
 
 const Calculator = () => {
   const [data, setdata] = useState("");
-
   const calculate = () => {
     try {
-      const result = eval(data);
-      setdata(result);
+      const result = data.replace("^", "**");
+      setdata(eval(result));
     } catch (e) {
       setdata("error");
     }
@@ -18,7 +15,8 @@ const Calculator = () => {
 
   const handleClick = (e) => {
     const value = e.target.getAttribute("data-value");
-    const percent = data/100;
+    const percent = (data) / 100;
+    
     switch (value) {
       case "clear":
         setdata("");
@@ -26,43 +24,46 @@ const Calculator = () => {
       case "equal":
         calculate();
         break;
-        case "%":
+      case "%":
         setdata(percent);
+        break;
+      case "<=":
+        setdata(data.slice(0, data.length - 1));
         break;
       default:
         setdata(data + value);
     }
   };
-
   return (
     <div className="Calculator">
+      <h1>Calculator</h1>
       <div className="display">{data}</div>
       <div className="keypad">
-        <Button onClick={handleClick} label="C" value="clear" />
-        <Button onClick={handleClick} label="7" value="7" />
-        <Button onClick={handleClick} label="4" value="4" />
-        <Button onClick={handleClick} label="1" value="1" />
-        <Button onClick={handleClick} label="0" value="0" />
+        <Button1 onClick={handleClick} label="C" value="clear" />
+        <Button1 onClick={handleClick} label="7" value="7" />
+        <Button1 onClick={handleClick} label="4" value="4" />
+        <Button1 onClick={handleClick} label="1" value="1" />
+        <Button1 onClick={handleClick} label="0" value="0" />
 
-        <Button onClick={handleClick} label="/" value="/" />
-        <Button onClick={handleClick} label="8" value="8" />
-        <Button onClick={handleClick} label="5" value="5" />
-        <Button onClick={handleClick} label="2" value="2" />
-        <Button onClick={handleClick} label="." value="." />
+        <Button1 onClick={handleClick} label="/" value="/" />
+        <Button1 onClick={handleClick} label="8" value="8" />
+        <Button1 onClick={handleClick} label="5" value="5" />
+        <Button1 onClick={handleClick} label="2" value="2" />
+        <Button1 onClick={handleClick} label="." value="." />
 
-        <Button onClick={handleClick} label="x" value="*" />
-        <Button onClick={handleClick} label="9" value="9" />
-        <Button onClick={handleClick} label="6" value="6" />
-        <Button onClick={handleClick} label="3" value="3" />
-        <Button onClick={handleClick} label="%" value="%" />
+        <Button1 onClick={handleClick} label="x" value="*" />
+        <Button1 onClick={handleClick} label="9" value="9" />
+        <Button1 onClick={handleClick} label="6" value="6" />
+        <Button1 onClick={handleClick} label="3" value="3" />
+        <Button1 onClick={handleClick} label="%" value="%" />
 
-        <Button onClick={handleClick} label="-" value="-" />
-        <Button onClick={handleClick} label="+" size="1" value="+" />
-        <Button onClick={handleClick} label="^" size="1" value="**" />
-        <Button onClick={handleClick} label="=" size="2" value="equal" />
+        <Button1 onClick={handleClick} label="<=" size="1" value="<=" />
+        <Button1 onClick={handleClick} label="-" size ="1" value="-" />
+        <Button1 onClick={handleClick} label="+" size="1" value="+" />
+        <Button1 onClick={handleClick} label="^" size="1" value="^" />
+        <Button1 onClick={handleClick} label="=" size="1" value="equal" />
       </div>
     </div>
   );
 };
-
 export default Calculator;
