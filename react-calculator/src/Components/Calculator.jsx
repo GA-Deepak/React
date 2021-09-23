@@ -8,6 +8,7 @@ const Calculator = () => {
   const calculate = () => {
     try {
       let result = data.replace("^", "**");
+      result = result.replace("%", "/100")
       setdata(eval(result));
     } catch (e) {
       setdata("error");
@@ -16,7 +17,6 @@ const Calculator = () => {
 
   const handleClick = (e) => {
     const value = e.target.getAttribute("data-value");
-    
     switch (value) {
       case "clear":
         setdata("");
@@ -24,7 +24,6 @@ const Calculator = () => {
       case "equal":
         calculate();
         break;
-      
       case "<=":
         setdata(data.slice(0, data.length - 1));
         break;
