@@ -4,9 +4,10 @@ import "./Calculator.css";
 
 const Calculator = () => {
   const [data, setdata] = useState("");
+  
   const calculate = () => {
     try {
-      const result = data.replace("^", "**");
+      let result = data.replace("^", "**");
       setdata(eval(result));
     } catch (e) {
       setdata("error");
@@ -15,7 +16,6 @@ const Calculator = () => {
 
   const handleClick = (e) => {
     const value = e.target.getAttribute("data-value");
-    const percent = (data) / 100;
     
     switch (value) {
       case "clear":
@@ -24,9 +24,7 @@ const Calculator = () => {
       case "equal":
         calculate();
         break;
-      case "%":
-        setdata(percent);
-        break;
+      
       case "<=":
         setdata(data.slice(0, data.length - 1));
         break;
