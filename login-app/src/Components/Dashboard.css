@@ -1,0 +1,26 @@
+.navbar{
+    background-image: linear-gradient(to right, rgb(17, 16, 16) , rgb(117, 117, 107));
+}
+body{
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(161, 121, 121));
+}
+.container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 70px;
+   width: 400px;
+}
+.table{
+    color: rgb(35, 35, 61);
+}
+#img{
+    transition: transform .2s;
+    margin: 15px;
+}
+#img:hover {
+    transform: scale(1.1); 
+  }
+
+  
