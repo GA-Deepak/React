@@ -3,6 +3,12 @@ import axios from 'axios';
 import Pagination from './pagination';
 import { Paginate } from "../utills/paginate";
 import Searchbox from './Searchbox';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import "./style.css";
 const ItemsList = () => {
     const [api, setapi] = useState([]);
@@ -19,11 +25,9 @@ const ItemsList = () => {
    const handlePageChange = (page) => {
       setcurrentPage(page);
     };
-
     const handeleChange = query => {
       settext(query);
       setcurrentPage(1);
-
     };
     let filtered = api;
     if(text){
@@ -36,26 +40,28 @@ const ItemsList = () => {
         <h1 id="head">Table using axios api</h1>
         <Searchbox value= {text} onChange={handeleChange}/>
         <div>
-           <table className="table">
-  <thead>
-    <tr>
-      <th scope="col">userId</th>
-      <th scope="col">id</th>
-      <th scope="col">title</th>
-      <th scope="col">body</th>
+          <TableContainer>
+           <Table className="table">
+  <TableHead>
+    <TableRow>
+      <TableCell id="get" scope="col">userId</TableCell>
+      <TableCell id="get" scope="col">id</TableCell>
+      <TableCell id="get" scope="col">title</TableCell>
+      <TableCell id="get" scope="col">body</TableCell>
       
-    </tr>
-  </thead>
-  <tbody>
+    </TableRow>
+  </TableHead>
+  <TableBody>
    {Items.map(val=>
-     <tr key={val.id}>
-     <td>{val.userId}</td>
-     <td>{val.id}</td>
-     <td>{val.title}</td>
-     <td>{val.body}</td>
-   </tr>)}
-    </tbody>
-    </table>
+     <TableRow key={val.id}>
+     <TableCell id="td" >{val.userId}</TableCell>
+     <TableCell id="td">{val.id}</TableCell>
+     <TableCell id="td">{val.title}</TableCell>
+     <TableCell id="td">{val.body}</TableCell>
+   </TableRow>)}
+    </TableBody>
+    </Table>
+    </TableContainer>
         </div>
         <Pagination
          itemsCount={api.length}
