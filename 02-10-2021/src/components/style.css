@@ -1,0 +1,16 @@
+body{
+    background-image: linear-gradient(to right, rgb(245, 234, 234), rgb(211, 211, 116));
+}
+#search{
+    float: right;
+}
+#head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
