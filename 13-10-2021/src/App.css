@@ -37,7 +37,7 @@
   }
 }
 body{
-  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(163, 62, 62));
+  background-image: linear-gradient(to right, rgb(39, 204, 47), rgb(236, 236, 236));
 }
 .container{
  display: flex;
