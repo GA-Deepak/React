@@ -5,7 +5,7 @@ const Private = ({ children, ...props }) => {
   token = localStorage.getItem("token") ? (token = true) : (token = false);
 
   return (
-    <Route {...props} render={() => (token ? children : <Redirect to={"/"} />)} />
+    <Route {...props} render={() => (token ? children : <Redirect to={"/"}/>)} />
   );
 };
 
