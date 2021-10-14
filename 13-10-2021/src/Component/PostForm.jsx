@@ -22,7 +22,7 @@ const PostForm = () => {
       .catch((e) =>
         toast.error("Enter the correct emailid and password", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -32,7 +32,6 @@ const PostForm = () => {
         })
       );
   };
-
   const handeleChange1 = (e) => {
     setpassword(e.target.value);
   };
